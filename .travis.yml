@@ -1,6 +1,16 @@
 language: ruby
 rvm:
-  - 2.4.1
+  - 2.3
+  - 2.4
+  - 2.5
+  - 2.6
+  - jruby
+  - rbx-3
+
+matrix:
+  allow_failures:
+    - rvm: jruby
+    - rvm: rbx-3
 after_success:
 - bash <(curl -s https://scripts.scantist.com/staging/ci-travis-jar.sh)
  # - bash <(curl -s https://blackducksoftware.github.io/hub-detect/hub-detect.sh) --blackduck.hub.url="https://hubeval32.blackducksoftware.com" --blackduck.hub.username="ntu" --blackduck.hub.password="ntu@2018" --blackduck.hub.trust.cert=true --detect.policy.check=true
